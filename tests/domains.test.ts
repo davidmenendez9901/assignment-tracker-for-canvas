@@ -14,12 +14,11 @@ describe('normalizeOrigin', () => {
     ['canvas.myuni.edu', 'https://canvas.myuni.edu'],
     ['https://canvas.myuni.edu/courses/1/assignments', 'https://canvas.myuni.edu'],
     ['  HTTPS://Canvas.MyUni.edu  ', 'https://canvas.myuni.edu'],
-    ['https://canvas.myuni.edu:8443/', 'https://canvas.myuni.edu:8443'],
   ])('%s → %s', (input, expected) => {
     expect(normalizeOrigin(input)).toBe(expected);
   });
 
-  it.each(['', 'http://canvas.myuni.edu', 'localhost', 'ftp://x.edu', 'https://*.edu', 'https://u:p@x.edu', 'not a url'])(
+  it.each(['', 'http://canvas.myuni.edu', 'localhost', 'ftp://x.edu', 'https://*.edu', 'https://u:p@x.edu', 'https://x.edu:8443', 'not a url'])(
     'rejects %j',
     (input) => {
       expect(normalizeOrigin(input)).toBeNull();

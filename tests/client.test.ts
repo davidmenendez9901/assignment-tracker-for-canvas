@@ -202,7 +202,36 @@ describe('loadAssignments', () => {
       lock_info: { context_module: { id: 3, name: 'Week 1' }, asset_string: 'assignment_1' },
       submission: null,
     });
-    expect(slim.lock_info?.context_module?.name).toBe('Week 1');
-    expect(slim.submission).toBeNull();
+    expect(slim?.lock_info?.context_module?.name).toBe('Week 1');
+    expect(slim?.submission).toBeNull();
+  });
+
+  it('normalizes tampered cache data instead of trusting it', async () => {
+    const storage = memoryStorage();
+    storage.setItem(
+      'atc:v1:assignments:7',
+      JSON.stringify({
+        savedAt: 1000,
+        data: [
+          { id: 1, name: { evil: true }, html_url: 42, points_possible: '100', submission: { score: 'x' } },
+          'not an object',
+          { name: 'no id' },
+        ],
+      }),
+    );
+    const fetchImpl = vi.fn<FetchLike>();
+    const result = await loadAssignments(createClient({ origin: ORIGIN, fetchImpl }), '7', { storage, now: () => 1500 });
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(result.assignments).toHaveLength(1);
+    expect(result.assignments[0]).toMatchObject({ id: 1, name: null, html_url: null, points_possible: null });
+    expect(result.assignments[0]?.submission?.score).toBeNull();
+  });
+
+  it('refetches when the cached value is not a list', async () => {
+    const storage = memoryStorage();
+    storage.setItem('atc:v1:assignments:7', JSON.stringify({ savedAt: 1000, data: { not: 'a list' } }));
+    const fetchImpl = vi.fn<FetchLike>(async () => json([]));
+    await loadAssignments(createClient({ origin: ORIGIN, fetchImpl }), '7', { storage, now: () => 1500 });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
   });
 });

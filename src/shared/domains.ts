@@ -23,6 +23,8 @@ export function normalizeOrigin(input: string): string | null {
   }
   if (url.protocol !== 'https:') return null;
   if (url.username || url.password) return null;
+  // Match patterns cannot express a port in Firefox; Canvas runs on the default port.
+  if (url.port) return null;
   const host = url.hostname;
   // Require a dotted hostname; reject wildcard-ish or empty input.
   if (!host || !host.includes('.') || host.includes('*')) return null;
