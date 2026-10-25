@@ -1,0 +1,39 @@
+{
+  "name": "assignment-tracker-for-canvas",
+  "version": "0.1.0",
+  "description": "Browser extension that shows scores, points left and availability for each assignment on Canvas LMS course pages. Read-only, local-only.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidmenendez9901/assignment-tracker-for-canvas.git"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:chrome": "node scripts/build.mjs chrome",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "watch": "node scripts/build.mjs chrome --watch",
+    "zip": "node scripts/zip.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/chrome": "0.3.6",
+    "esbuild": "0.28.2",
+    "eslint": "10.13.0",
+    "globals": "17.13.0",
+    "happy-dom": "21.0.4",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
+    "vitest": "5.0.5"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Assignment Tracker for Canvas",
+  "short_name": "Assignment Tracker",
+  "description": "See which Canvas assignments aren't at full points, what's overdue, open, or closed. Read-only and private: nothing leaves your browser.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Assignment Tracker for Canvas",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "permissions": ["scripting", "activeTab"],
+  "optional_host_permissions": ["https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.instructure.com/courses/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

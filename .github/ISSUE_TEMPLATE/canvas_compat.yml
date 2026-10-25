@@ -1,0 +1,38 @@
+name: Canvas compatibility
+description: The panel or badges don't appear on your school's Canvas.
+labels: [canvas-compat]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Canvas markup varies between versions and schools. This helps us support yours.
+        **Remove personal information (names, grades, course names) from anything you paste.**
+  - type: checkboxes
+    id: what
+    attributes:
+      label: What do you see?
+      options:
+        - label: The summary panel appears
+        - label: Badges appear on assignment rows
+        - label: The panel shows an error message
+  - type: input
+    id: error
+    attributes:
+      label: Error message shown in the panel (if any)
+  - type: textarea
+    id: markup
+    attributes:
+      label: Sanitized markup of one assignment row
+      description: Right-click an assignment title → Inspect → right-click the surrounding `<li>` → Copy → Copy outerHTML. Replace names/titles with placeholders.
+      render: html
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page path (no domain needed)
+      placeholder: /courses/123/assignments
