@@ -102,6 +102,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - Dates are compared in absolute time and shown in your browser's time zone, which may differ from your Canvas profile time zone.
 - The panel lists all assignments in the course (including other grading periods); a checkbox lets you hide ones not listed on the current page.
 
+## Use at your own risk
+
+This is a free, independent tool provided **"as is", without warranty of any kind** (see the [MIT License](LICENSE) and the [Terms of Use](https://davidmenendez9901.github.io/assignment-tracker-for-canvas/terms.html)). It shows what Canvas reports, but it can be wrong or out of date. **Canvas is the official source**: always confirm deadlines and grades there. The authors are not responsible for missed deadlines, grades, or any other consequence of using it.
+
 ## License
 
 [MIT](LICENSE)

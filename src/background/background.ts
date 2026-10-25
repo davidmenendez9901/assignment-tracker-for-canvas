@@ -11,7 +11,11 @@ function sync(): void {
   });
 }
 
-ext.runtime.onInstalled.addListener(sync);
+ext.runtime.onInstalled.addListener((details) => {
+  sync();
+  // Show the welcome page (with the "use at your own risk" notice) once, on first install.
+  if (details.reason === 'install') void ext.runtime.openOptionsPage();
+});
 ext.runtime.onStartup.addListener(sync);
 ext.permissions.onAdded.addListener(sync);
 ext.permissions.onRemoved.addListener(sync);

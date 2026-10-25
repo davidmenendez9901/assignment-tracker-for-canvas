@@ -124,6 +124,18 @@ label {
   border-bottom: 1px solid var(--border);
 }
 
+.notice {
+  margin-top: 16px;
+  padding: 4px 16px;
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+.notice h2 {
+  margin-top: 12px;
+}
+
 #status:empty {
   display: none;
 }
