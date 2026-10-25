@@ -59,6 +59,7 @@ You can also add or remove addresses any time from the extension's **Options** p
 |---|---|
 | `85/100 · 15 pts left` | Graded below full points. Late penalties are already included in the score. |
 | `100/100` (subtle) | Full points (or `+X extra` for extra credit). |
+| **Due in 3 days** / **Due in 5 hours** | Open and not submitted yet. Highlighted when due within 48 hours. |
 | **Overdue** | Past the due date, still open, nothing submitted. Only for online submissions. |
 | **Missing** | Canvas (or your teacher) marked it missing. |
 | **Late (−5)** | Submitted late; points deducted by the late policy. |

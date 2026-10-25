@@ -35,6 +35,22 @@ function points(n: number): string {
   return `${formatPoints(n)} ${n === 1 ? 'point' : 'points'}`;
 }
 
+const MINUTE = 60_000;
+const HOUR = 60 * MINUTE;
+const DAY = 24 * HOUR;
+/** Upcoming work due within this window is highlighted. */
+export const DUE_SOON_MS = 48 * HOUR;
+
+/** "in 3 hours", "tomorrow", "in 5 days". */
+export function formatRelative(target: number, now: number): string {
+  const diff = target - now;
+  const abs = Math.abs(diff);
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+  if (abs < HOUR) return rtf.format(Math.round(diff / MINUTE), 'minute');
+  if (abs < DUE_SOON_MS) return rtf.format(Math.round(diff / HOUR), 'hour');
+  return rtf.format(Math.round(diff / DAY), 'day');
+}
+
 export function formatDate(t: number, opts: Pick<FormatOptions, 'locale' | 'timeZone'> = {}): string {
   return new Intl.DateTimeFormat(opts.locale, {
     month: 'short',
@@ -91,6 +107,25 @@ export function badgeParts(c: Classification, opts: FormatOptions): BadgePart[] 
     parts.push({ text: 'Missing', label: 'Marked missing', tone: 'danger', icon: 'alert' });
   } else if (c.overdue) {
     parts.push({ text: 'Overdue', label: 'Overdue: past the due date and not submitted', tone: 'danger', icon: 'clock' });
+  } else if (
+    c.availability === 'open' &&
+    c.dueAt !== null &&
+    c.dueAt > opts.now &&
+    !c.submitted &&
+    !c.excused &&
+    !c.ungraded &&
+    c.score === null
+  ) {
+    // Upcoming work still to do.
+    const rel = formatRelative(c.dueAt, opts.now);
+    const soon = c.dueAt - opts.now <= DUE_SOON_MS;
+    parts.push({
+      text: `Due ${rel}`,
+      label: `Not submitted yet, due ${rel}`,
+      tone: soon ? 'warning' : 'neutral',
+      icon: 'clock',
+      subtle: !soon,
+    });
   }
   if (c.late) {
     const deducted = c.pointsDeducted !== null ? ` (−${formatPoints(c.pointsDeducted)})` : '';

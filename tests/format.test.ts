@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { classifyAssignment } from '../src/core/classify';
-import { ariaSummary, badgeParts, badgeSignature, formatPoints } from '../src/core/format';
+import { ariaSummary, badgeParts, badgeSignature, formatPoints, formatRelative } from '../src/core/format';
 import { assignment, FUTURE, graded, NOW, PAST, submission } from './helpers';
 
 const opts = { now: NOW, locale: 'en-US', timeZone: 'UTC' };
@@ -92,8 +92,34 @@ describe('badgeParts', () => {
 
   it('open only when requested', () => {
     const c = classifyAssignment(assignment({ due_at: FUTURE, lock_at: FUTURE }), NOW);
-    expect(badgeParts(c, opts)).toEqual([]);
-    expect(badgeParts(c, { ...opts, includeOpen: true }).map((p) => p.text)).toEqual(['Open until Mar 20, 11:59 PM']);
+    expect(badgeParts(c, opts).map((p) => p.text)).toEqual(['Due in 5 days']);
+    expect(badgeParts(c, { ...opts, includeOpen: true }).map((p) => p.text)).toEqual([
+      'Due in 5 days',
+      'Open until Mar 20, 11:59 PM',
+    ]);
+  });
+
+  it('upcoming work: subtle when far, highlighted when due within 48 hours', () => {
+    const far = badgeParts(classifyAssignment(assignment({ due_at: FUTURE }), NOW), opts)[0]!;
+    expect(far).toMatchObject({ text: 'Due in 5 days', tone: 'neutral', subtle: true });
+
+    const soon = badgeParts(classifyAssignment(assignment({ due_at: '2026-03-16T09:00:00Z' }), NOW), opts)[0]!;
+    expect(soon).toMatchObject({ text: 'Due in 21 hours', tone: 'warning', subtle: false });
+    expect(soon.label).toBe('Not submitted yet, due in 21 hours');
+  });
+
+  it('no upcoming badge once submitted, without a due date, or for ungraded work', () => {
+    expect(texts({ due_at: FUTURE }, submission({ submitted_at: PAST, workflow_state: 'submitted' }))).toEqual([
+      'Submitted · awaiting grade',
+    ]);
+    expect(texts({ due_at: null })).toEqual([]);
+    expect(texts({ due_at: FUTURE, points_possible: 0 })).toEqual(['No points']);
+  });
+
+  it('formatRelative', () => {
+    expect(formatRelative(NOW + 30 * 60_000, NOW)).toBe('in 30 minutes');
+    expect(formatRelative(NOW + 3 * 3_600_000, NOW)).toBe('in 3 hours');
+    expect(formatRelative(NOW + 3 * 86_400_000, NOW)).toBe('in 3 days');
   });
 
   it('nothing for non-student roles', () => {
