@@ -31,4 +31,4 @@ Certify:
 - [x] I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - [x] I do not use or transfer user data to determine creditworthiness or for lending purposes
 
-**Privacy policy URL:** https://github.com/davidmenendez9901/assignment-tracker-for-canvas/blob/main/PRIVACY.md
+**Privacy policy URL:** https://davidmenendez9901.github.io/assignment-tracker-for-canvas/privacy.html

@@ -8,11 +8,13 @@ A free, open-source browser extension for students who use Canvas LMS. On a cour
 
 It adds a small badge to each assignment row and a collapsible summary panel with filters: **Not at 100%**, **Open**, **Overdue**, **Closed**, **Pending grading**, **All**.
 
+**Website:** https://davidmenendez9901.github.io/assignment-tracker-for-canvas/ · [Privacy Policy](https://davidmenendez9901.github.io/assignment-tracker-for-canvas/privacy.html) · [Terms of Use](https://davidmenendez9901.github.io/assignment-tracker-for-canvas/terms.html)
+
 > **Disclaimer:** Not affiliated with, endorsed by, or sponsored by Instructure, Inc. Canvas is a trademark of Instructure, Inc.
 
 ## Screenshots
 
-_Coming soon._ <!-- store/screenshots/ -->
+![Assignments page with the summary panel and badges (made-up data)](store/screenshots/01-assignments-light.png)
 
 ## Privacy in one paragraph
 

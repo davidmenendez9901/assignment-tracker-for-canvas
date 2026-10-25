@@ -1,6 +1,6 @@
 # Screenshots
 
-Placeholder. Store screenshots should show the extension on a Canvas page with **fake data** (a test course), never a real student's grades or names.
+Store screenshots should show the extension on a Canvas page with **fake data** (a test course), never a real student's grades or names.
 
 Needed:
 - Chrome Web Store: 1280×800 (or 640×400), PNG/JPEG, 1 to 5 images.

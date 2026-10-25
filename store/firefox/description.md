@@ -9,11 +9,11 @@ See which Canvas assignments aren't at full points yet, and what's overdue, open
 
 **License:** MIT
 
-**Homepage:** https://github.com/davidmenendez9901/assignment-tracker-for-canvas
+**Homepage:** https://davidmenendez9901.github.io/assignment-tracker-for-canvas/
 
 **Support site:** https://github.com/davidmenendez9901/assignment-tracker-for-canvas/issues
 
-**Privacy policy:** paste the contents of `PRIVACY.md`.
+**Privacy policy:** paste the contents of `PRIVACY.md` (also published at https://davidmenendez9901.github.io/assignment-tracker-for-canvas/privacy.html).
 
 ## Description
 

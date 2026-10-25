@@ -32,6 +32,10 @@ Nowhere. The data is processed inside your browser to draw badges and the summar
 | `scripting` | To run on a custom Canvas address after you allow it. |
 | `activeTab` | So the toolbar popup can see which site you are on and offer to enable it. |
 
+## Full policy
+
+The complete, current policy (including this website) is at https://davidmenendez9901.github.io/assignment-tracker-for-canvas/privacy.html. See also the [Terms of Use](https://davidmenendez9901.github.io/assignment-tracker-for-canvas/terms.html).
+
 ## Contact
 
 Questions or concerns: open an issue at https://github.com/davidmenendez9901/assignment-tracker-for-canvas/issues

@@ -36,6 +36,7 @@ Not affiliated with, endorsed by, or sponsored by Instructure, Inc. Canvas is a 
 ## Assets checklist
 
 - [ ] Icon 128×128: `icons/icon-128.png`
-- [ ] At least one screenshot 1280×800 or 640×400: `store/screenshots/`
+- [x] Screenshots 1280×800 (fake data): `store/screenshots/01-assignments-light.png`, `02-assignments-dark.png`
 - [ ] Small promo tile 440×280 (optional)
-- [ ] Privacy policy URL: link to `PRIVACY.md` on GitHub
+- [ ] Privacy policy URL: https://davidmenendez9901.github.io/assignment-tracker-for-canvas/privacy.html
+- [ ] Homepage URL: https://davidmenendez9901.github.io/assignment-tracker-for-canvas/

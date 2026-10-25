@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assignment Tracker for Canvas: see what's not at full points</title>
+    <meta
+      name="description"
+      content="Free, open-source browser extension for students using Canvas LMS. See which assignments aren't at full points and what's overdue, open, or closed. Private: nothing leaves your browser."
+    />
+    <meta name="referrer" content="no-referrer" />
+    <link rel="icon" href="assets/icon-32.png" sizes="32x32" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="logo" href="./"><img src="assets/icon-128.png" alt="" width="32" height="32" />Assignment Tracker</a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="hero">
+        <div class="wrap">
+          <h1>See at a glance which Canvas assignments still need your attention</h1>
+          <p class="lead">
+            A free, open-source browser extension for students. It marks every assignment on your course's
+            Assignments page with its score, points left, and whether it's open, overdue, or closed.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#install">Install</a>
+            <a class="btn btn-secondary" href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas">View source</a>
+          </div>
+          <p class="note">For Chrome, Edge, Brave and Firefox. Coming soon to the Chrome Web Store and Firefox Add-ons.</p>
+          <figure class="shot">
+            <img
+              src="assets/screenshot.png"
+              width="1000"
+              height="1000"
+              alt="A course Assignments page with the Assignment Tracker summary panel at the top, filtered to 'Not at 100%', and badges such as '85/100 · 15 pts left', 'Overdue', 'Missing', and 'Submitted · awaiting grade' on each assignment."
+            />
+            <figcaption>Example with made-up data.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <section id="features" aria-labelledby="features-h">
+        <div class="wrap">
+          <h2 id="features-h">What it shows</h2>
+          <ul class="grid">
+            <li class="card">
+              <h3>Points you're missing</h3>
+              <p>"85/100 · 15 pts left" on each graded assignment, plus a total across the course.</p>
+            </li>
+            <li class="card">
+              <h3>What's open, overdue, or closed</h3>
+              <p>Overdue and Missing work stands out; closed and not-yet-available assignments are labeled.</p>
+            </li>
+            <li class="card">
+              <h3>What's waiting on your teacher</h3>
+              <p>Submitted but not graded yet, or graded but not posted.</p>
+            </li>
+            <li class="card">
+              <h3>Filters in one place</h3>
+              <p>A collapsible panel: Not at 100%, Open, Overdue, Closed, Pending grading.</p>
+            </li>
+          </ul>
+          <h3 style="margin-top: 32px">Badges you'll see</h3>
+          <ul class="badges" aria-label="Example badges">
+            <li>85/100 · 15 pts left</li>
+            <li>Due in 2 days</li>
+            <li>Overdue</li>
+            <li>Missing</li>
+            <li>Late (−5)</li>
+            <li>Closed</li>
+            <li>Opens Nov 3</li>
+            <li>Submitted · awaiting grade</li>
+            <li>Grade not posted</li>
+            <li>Excused</li>
+            <li>No points</li>
+            <li>Retry available (1/3 used)</li>
+          </ul>
+          <p class="note">
+            Every badge uses text and an icon, not just color, and has a screen-reader description. Works with
+            dark pages and high-contrast modes.
+          </p>
+        </div>
+      </section>
+
+      <section id="privacy" aria-labelledby="privacy-h">
+        <div class="wrap">
+          <h2 id="privacy-h">Private by design</h2>
+          <ul class="grid">
+            <li class="card">
+              <h3>Nothing leaves your browser</h3>
+              <p>No analytics, no tracking, no ads, no servers of ours. There is nowhere for your data to go.</p>
+            </li>
+            <li class="card">
+              <h3>No passwords or tokens</h3>
+              <p>It reads from the Canvas site you're already logged in to, the same way the page itself does.</p>
+            </li>
+            <li class="card">
+              <h3>Read-only</h3>
+              <p>It can't submit, edit, or delete anything in Canvas. It only reads.</p>
+            </li>
+            <li class="card">
+              <h3>Open source</h3>
+              <p>MIT-licensed. Anyone can check exactly what it does.</p>
+            </li>
+          </ul>
+          <p><a href="privacy.html">Read the full privacy policy</a></p>
+        </div>
+      </section>
+
+      <section id="install" aria-labelledby="install-h">
+        <div class="wrap narrow">
+          <h2 id="install-h">Install</h2>
+          <p>
+            Store listings are on the way. Until then, you can install it from source (requires
+            <a href="https://nodejs.org/">Node.js</a> 22 or newer):
+          </p>
+          <pre><code>git clone https://github.com/davidmenendez9901/assignment-tracker-for-canvas.git
+cd assignment-tracker-for-canvas
+npm install
+npm run build</code></pre>
+          <h3>Chrome, Edge, Brave</h3>
+          <ol class="steps">
+            <li>Open <code>chrome://extensions</code> and turn on <strong>Developer mode</strong>.</li>
+            <li>Click <strong>Load unpacked</strong> and choose the <code>dist/chrome</code> folder.</li>
+          </ol>
+          <h3>Firefox (140+)</h3>
+          <ol class="steps">
+            <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+            <li>Click <strong>Load Temporary Add-on…</strong> and choose <code>dist/firefox/manifest.json</code>.</li>
+          </ol>
+          <h3>Your school uses its own Canvas address?</h3>
+          <p>
+            It works automatically on addresses ending in <code>instructure.com</code>. For others (like
+            <code>canvas.myuniversity.edu</code>): open your Canvas, click the extension icon, choose
+            <strong>Enable on this site</strong>, then <strong>Allow</strong>. Access is granted only to that one site.
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-h">
+        <div class="wrap narrow">
+          <h2 id="faq-h">Questions</h2>
+          <details>
+            <summary>Is this made by Instructure or my school?</summary>
+            <p>
+              No. It's an independent open-source project. It is not affiliated with, endorsed by, or sponsored by
+              Instructure, Inc. or any school.
+            </p>
+          </details>
+          <details>
+            <summary>Can my school see that I use it?</summary>
+            <p>
+              The extension reads your assignments through Canvas's normal API, the same kind of requests the Canvas
+              page itself makes. Like any Canvas activity, those requests may appear in your school's Canvas logs.
+              The extension doesn't change anything in Canvas.
+            </p>
+          </details>
+          <details>
+            <summary>Is the information always correct?</summary>
+            <p>
+              It shows what Canvas reports, but it can be wrong or out of date (for example, if your teacher grades
+              offline or changes dates). <strong>Canvas is the official source.</strong> Always check deadlines and
+              grades there. See the <a href="terms.html">Terms of Use</a>.
+            </p>
+          </details>
+          <details>
+            <summary>Does it work for teachers?</summary>
+            <p>No. It's designed for students. Teachers and observers see a short note instead of badges.</p>
+          </details>
+          <details>
+            <summary>Why does it need permissions?</summary>
+            <p>
+              To run on Canvas course pages (<code>*.instructure.com</code>), and, only if you choose, on your school's
+              own Canvas address. Each permission is explained in the <a href="privacy.html#permissions">privacy policy</a>.
+            </p>
+          </details>
+          <details>
+            <summary>Something doesn't look right. Where do I report it?</summary>
+            <p>
+              Open an issue on
+              <a href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas/issues/new/choose">GitHub</a>.
+              Please don't include your name, grades, or course names.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas/issues">Support</a></li>
+          <li><a href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas/security/policy">Security</a></li>
+          <li><a href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas/blob/main/LICENSE">MIT License</a></li>
+        </ul>
+        <p>
+          Assignment Tracker for Canvas is an independent project. Not affiliated with, endorsed by, or sponsored by
+          Instructure, Inc. Canvas is a trademark of Instructure, Inc., used here only to describe compatibility.
+        </p>
+        <p>This website uses no cookies, analytics, or third-party resources.</p>
+      </div>
+    </footer>
+  </body>
+</html>
