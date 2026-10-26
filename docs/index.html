@@ -38,7 +38,7 @@
             Assignments page with its score, points left, and whether it's open, overdue, or closed.
           </p>
           <div class="cta">
-            <a class="btn btn-primary" href="#install">Install</a>
+            <a class="btn btn-primary" href="#install">How to install</a>
             <a class="btn btn-secondary" href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas">View source</a>
           </div>
           <p class="note">For Chrome, Edge, Brave and Firefox. Coming soon to the Chrome Web Store and Firefox Add-ons.</p>
@@ -126,23 +126,64 @@
         <div class="wrap narrow">
           <h2 id="install-h">Install</h2>
           <p>
-            Store listings are on the way. Until then, you can install it from source (requires
-            <a href="https://nodejs.org/">Node.js</a> 22 or newer):
+            Store listings are on the way. Until then, download the ready-to-use package from GitHub. It takes about
+            a minute and needs nothing else installed.
           </p>
-          <pre><code>git clone https://github.com/davidmenendez9901/assignment-tracker-for-canvas.git
+          <p>
+            <a class="btn btn-primary" href="https://github.com/davidmenendez9901/assignment-tracker-for-canvas/releases/latest">Download the latest release</a>
+          </p>
+
+          <h3>Chrome, Edge, Brave</h3>
+          <ol class="steps">
+            <li>
+              On the release page, under <strong>Assets</strong>, download
+              <code>assignment-tracker-chrome-<em>version</em>.zip</code>.
+            </li>
+            <li>
+              Unzip it and move the folder somewhere permanent (for example, your Documents folder).
+              <strong>Don't delete it later</strong>: the browser loads the extension from that folder.
+            </li>
+            <li>
+              Open <code>chrome://extensions</code> (Edge: <code>edge://extensions</code>, Brave:
+              <code>brave://extensions</code>) and turn on <strong>Developer mode</strong>.
+            </li>
+            <li>
+              Click <strong>Load unpacked</strong> and select the unzipped folder, the one that contains
+              <code>manifest.json</code>.
+            </li>
+            <li>Optional: click the puzzle-piece icon in the toolbar and pin <strong>Assignment Tracker</strong>.</li>
+          </ol>
+          <p class="note">
+            Chrome may show a notice about developer-mode extensions; that's normal for extensions installed outside
+            the Chrome Web Store.
+          </p>
+
+          <h3>Firefox (140+)</h3>
+          <ol class="steps">
+            <li>Download <code>assignment-tracker-firefox-<em>version</em>.zip</code> from the release page.</li>
+            <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+            <li>Click <strong>Load Temporary Add-on…</strong> and choose the downloaded zip file.</li>
+          </ol>
+          <p class="note">
+            Firefox removes temporary add-ons when it restarts, so you'll need to repeat this until the Firefox
+            Add-ons listing is available.
+          </p>
+
+          <h3>Updating</h3>
+          <p>
+            Download the new release, replace the contents of your folder with the new files, then click the
+            reload icon (↻) on the extension in <code>chrome://extensions</code>.
+          </p>
+
+          <details>
+            <summary>Build it from source instead</summary>
+            <p>Requires <a href="https://nodejs.org/">Node.js</a> 22 or newer and git:</p>
+            <pre><code>git clone https://github.com/davidmenendez9901/assignment-tracker-for-canvas.git
 cd assignment-tracker-for-canvas
 npm install
 npm run build</code></pre>
-          <h3>Chrome, Edge, Brave</h3>
-          <ol class="steps">
-            <li>Open <code>chrome://extensions</code> and turn on <strong>Developer mode</strong>.</li>
-            <li>Click <strong>Load unpacked</strong> and choose the <code>dist/chrome</code> folder.</li>
-          </ol>
-          <h3>Firefox (140+)</h3>
-          <ol class="steps">
-            <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
-            <li>Click <strong>Load Temporary Add-on…</strong> and choose <code>dist/firefox/manifest.json</code>.</li>
-          </ol>
+            <p>Then load the <code>dist/chrome</code> folder (or <code>dist/firefox/manifest.json</code>) as described above.</p>
+          </details>
           <h3>Your school uses its own Canvas address?</h3>
           <p>
             It works automatically on addresses ending in <code>instructure.com</code>. For others (like

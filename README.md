@@ -20,7 +20,18 @@ It adds a small badge to each assignment row and a collapsible summary panel wit
 
 The extension reads your assignments from the Canvas site you are already logged in to, using that site's own API with your existing session. It never asks for a password or API token, never contacts any other server, has no analytics or telemetry, and loads no remote code. It only sends GET (read) requests: it cannot submit, edit, or delete anything. See [PRIVACY.md](PRIVACY.md).
 
-## Install from source
+## Install
+
+**From a release (recommended, nothing else to install):**
+
+1. Go to the [latest release](https://github.com/davidmenendez9901/assignment-tracker-for-canvas/releases/latest) and download `assignment-tracker-chrome-<version>.zip` (or the Firefox zip).
+2. Unzip it and keep the folder somewhere permanent; the browser loads the extension from it.
+3. Chrome / Edge / Brave: open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the unzipped folder (the one containing `manifest.json`).
+4. Firefox 140+: open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…**, and pick the zip. Temporary add-ons are removed when Firefox restarts.
+
+To update, replace the folder's contents with the new release and click ↻ on the extension.
+
+### Install from source
 
 Requirements: Node.js 22.12 or newer.
 
